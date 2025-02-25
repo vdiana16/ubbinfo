@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane prefHeight="500.0" prefWidth="500.0" stylesheets="@../style/styleSocialNetwork.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.socialnetwork.controller.AddFriendController">
+    <!-- Fundal cu imagine (folosind ImageView pentru a o redimensiona corect) -->
+    <ImageView fitHeight="600.0" fitWidth="600.0" layoutX="0" layoutY="0">
+        <Image url="@../images/background.png" />
+    </ImageView>
+
+    <HBox spacing="50" alignment="CENTER" AnchorPane.topAnchor="150" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10"
+    AnchorPane.bottomAnchor="150">
+        <!-- TableView pentru prieteni -->
+        <TableView fx:id="tblUsers" prefWidth="400.0" prefHeight="400.0" AnchorPane.leftAnchor="10"
+                   AnchorPane.rightAnchor="10" styleClass="table-view">
+            <columns>
+                <TableColumn fx:id="tblFirstName" text="First Name" prefWidth="150.0"/>
+                <TableColumn fx:id="tblLastName" text="Last Name" prefWidth="150.0"/>
+                <TableColumn fx:id="tblUsername" text="Username" prefWidth="200.0"/>
+            </columns>
+        </TableView>
+
+        <!-- Panou cu butoane -->
+        <VBox spacing="15" alignment="CENTER" AnchorPane.topAnchor="50" AnchorPane.rightAnchor="20">
+            <Button fx:id="btnAddFriend" onAction="#handleAddFriend" text="Add Friend" styleClass="addFriendButton"/>
+            <Button fx:id="btnCancel" onAction="#handleCancel" text="Back" styleClass="backButton"/>
+        </VBox>
+    </HBox>
+
+</AnchorPane>

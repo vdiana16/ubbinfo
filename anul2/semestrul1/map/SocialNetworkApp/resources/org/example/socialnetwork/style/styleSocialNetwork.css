@@ -1,0 +1,127 @@
+/* Fundalul general cu imagine */
+.AnchorPane {
+    -fx-background-color: #f8f8f8; /* Fundal deschis pentru întreaga fereastră */
+    -fx-background-image: url("../images/background.png");
+    -fx-background-size: cover; /* Asigură că imaginea acoperă întreaga zonă */
+}
+
+/* Stilizare pentru titluri */
+#lblGreeting {
+    -fx-text-fill: #ff1493; /* Roz intens pentru titlu */
+    -fx-font-size: 24px;
+    -fx-font-weight: bold; /* Textul este îngroșat */
+}
+
+/* Schimbarea culorii fundalului la hover */
+.table-view .row:hover {
+    -fx-background-color: #e0e0e0; /* Culoare de fundal când treci cu mouse-ul pe un rând */
+}
+
+/* Schimbarea culorii fundalului la selectare */
+.table-view .table-row-cell:filled:selected {
+    -fx-background-color: #ff1493; /* Culoare de fundal când rândul este selectat */
+    -fx-text-fill: black; /* Culoare text la selectare */
+}
+
+/* Fundal pentru tabel */
+.table-view {
+    -fx-background-image: url("../images/background.png");
+}
+
+.table-view .column-header {
+    -fx-background-color: #ff1493;
+    -fx-text-fill: #ff1493; /* Textul din antet va fi alb */
+    -fx-font-weight: bold; /* Font bold pentru textul din antet */
+    -fx-font-size: 14px; /* Dimensiune font */
+}
+
+/* Fundal transparent pentru celule */
+.table-view .cell {
+    -fx-background-color: transparent;
+}
+
+/* Border pentru tabel */
+.table-view {
+    -fx-border-color: #9e9e9e; /* Culoare border */
+    -fx-border-width: 1px;
+}
+
+/* Stilizare pentru ListView */
+.list-view {
+    -fx-background-image: url("../images/background.png");
+    -fx-border-color: #9e9e9e; /* Culoare border */
+    -fx-border-width: 1px;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+}
+
+/* Elementele din ListView */
+.list-view .list-cell {
+    -fx-background-color: transparent; /* Fundal transparent pentru fiecare element */
+    -fx-text-fill: #333333; /* Culoare text */
+    -fx-padding: 5px 10px; /* Margini pentru fiecare element */
+}
+
+/* Schimbarea culorii elementelor din ListView la hover */
+.list-view .list-cell:hover {
+    -fx-background-color: pink; /* Culoare de fundal când treci cu mouse-ul pe un element */
+}
+
+/* Schimbarea culorii elementelor selectate din ListView */
+.list-view .list-cell:selected {
+    -fx-background-color: #ff1493; /* Culoare de fundal când elementul este selectat */
+    -fx-text-fill: white; /* Culoare text când elementul este selectat */
+}
+
+/* Stilizare pentru butoane (Adaugă, Șterge, etc.) */
+.addFriendButton, .deleteFriendButton, .friendrequestsButton, .messageButton {
+    -fx-background-color: #ff1493; /* Culoare roz pentru butoane */
+    -fx-background-radius: 5px; /* Colțuri rotunjite */
+    -fx-font-size: 14px;
+    -fx-font-weight: normal; /* Font normal */
+    -fx-text-fill: white;
+    -fx-padding: 10px 20px;
+    -fx-pref-width: 150px;
+    -fx-alignment: center;
+}
+
+/* Efect de hover pentru butoane */
+.addFriendButton:hover, .deleteFriendButton:hover, .friendrequestsButton:hover, .messageButton:hover {
+    -fx-opacity: 0.8; /* Scăderea opacității la hover pentru un efect vizual */
+}
+
+/* Stilizare pentru butonul "Back" */
+.backButton {
+    -fx-background-color: #ff1493;
+    -fx-text-fill: white;
+    -fx-padding: 10px 20px;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5px;
+    -fx-pref-width: 150px;
+}
+
+/* Efect de hover pentru butonul "Back" */
+.backButton:hover {
+    -fx-opacity: 0.8;
+}
+
+/* Stilizare pentru notificarea cererii de prietenie */
+.notificationLabel {
+    -fx-text-fill: #ff1493;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 20, 147, 0.2);
+    -fx-padding: 5px 10px;
+    -fx-border-radius: 5px;
+    -fx-visible: false; /* Inițial invizibil */
+}
+
+/* Alinierea butoanelor și containerelor */
+.HBox {
+    -fx-padding: 10px;
+}
+
+.VBox {
+    -fx-padding: 20px;
+}

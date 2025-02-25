@@ -1,0 +1,50 @@
+/* Fundal general și aliniament pentru întregul AnchorPane */
+.AnchorPane {
+    -fx-background-color: #f4f4f4; /* Culoare de fundal deschisă */
+}
+
+/* Stilizare pentru titluri și etichete */
+.headerLabel {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333; /* Culoare gri pentru titlu */
+}
+
+/* Stilizare pentru secțiunea de detalii utilizator */
+.userDetailsBox {
+    -fx-background-color: #ffffff; /* Fundal alb pentru secțiunea de detalii */
+    -fx-background-radius: 10px; /* Colțuri rotunjite */
+    -fx-padding: 20px;
+    -fx-border-color: #dcdcdc; /* Margine subțire gri deschis */
+    -fx-border-radius: 10px;
+    -fx-border-width: 1px;
+}
+
+.infoLabel {
+    -fx-font-size: 18px;
+    -fx-text-fill: #555555; /* Culoare gri mai deschis pentru informații */
+}
+
+/* Stilizare pentru butoane */
+.actionButton {
+    -fx-background-radius: 0px; /* Colțuri drepte pentru butoane */
+    -fx-font-weight: normal; /* Elimină bold-ul */
+    -fx-padding: 10px 20px;
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+    -fx-background-color: #ff1493; /* Culoare roz pentru toate butoanele */
+}
+
+/* Efect de hover pentru butoane */
+.actionButton:hover {
+    -fx-opacity: 0.8;
+}
+
+/* Stilizare pentru VBox și HBox */
+.VBox {
+    -fx-padding: 20px;
+}
+
+.HBox {
+    -fx-padding: 10px;
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane prefHeight="500.0" prefWidth="500.0"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.socialnetwork.controller.UserDataInputController"
+            stylesheets="@../style/styleLogIn.css">
+    <!-- Fundal cu imagine (folosind ImageView pentru a o redimensiona corect) -->
+    <ImageView fitHeight="539.0" fitWidth="500.0" layoutX="0" layoutY="0">
+        <Image url="@../images/background.png" />
+    </ImageView>
+
+    <!-- Container principal cu VBox -->
+    <VBox alignment="CENTER" layoutX="50" layoutY="30" prefWidth="350" spacing="20" AnchorPane.bottomAnchor="120" AnchorPane.leftAnchor="50" AnchorPane.rightAnchor="50" AnchorPane.topAnchor="30">
+        <!-- Titlul "Sign Up" -->
+        <Label text="Enter user details" styleClass="titleLabel"/>
+
+        <!-- Inputuri pentru nume, prenume, username și parola -->
+        <VBox alignment="CENTER" spacing="15">
+            <TextField fx:id="txtFirstName" promptText="First Name" styleClass="inputField" />
+            <TextField fx:id="txtLastName" promptText="Last Name" styleClass="inputField" />
+            <TextField fx:id="txtUsername" promptText="Username" styleClass="inputField" />
+            <PasswordField fx:id="txtPassword" promptText="Password" styleClass="inputField" />
+            <PasswordField fx:id="txtConfirmPassword" promptText="Confirm Password" styleClass="inputField" />
+        </VBox>
+
+        <!-- Grup de butoane pentru Sign Up și Cancel -->
+        <HBox alignment="CENTER" spacing="15">
+            <Button fx:id="btnModify" onAction="#handleModify" text="Modify" styleClass="signUpButton"/>
+            <Button fx:id="btnCancel" onAction="#handleCancel" text="Cancel" styleClass="cancelButton"/>
+        </HBox>
+    </VBox>
+</AnchorPane>
