@@ -1,18 +1,21 @@
 package domain.validators;
 
-import domain.Friendship;
+import domain.User;
 import exceptions.ValidationException;
 
 /**
- * Validator for Friendship entities.
- * This class checks if the Friendship meet the specified validation rules.
+ * Validator for User entities.
+ * This class checks if the User objects meets the specified validation rules.
  */
-public class FriendshipValidator implements Validator<Friendship> {
+public class UserValidator implements Validator<User> {
     @Override
-    public void validate(Friendship entity) throws ValidationException {
+    public void validate(User entity) throws ValidationException {
         String erori = "";
-        if(entity.getUser1() == null || entity.getUser2() == null) {
-            erori += "The User cannot be null!\n";
+        if(entity.getFirstName().equals("")) {
+            erori += "The First Name cannot be null!\n";
+        }
+        if(entity.getLastName().equals("")) {
+            erori += "The Last Name cannot be null!\n";
         }
         if(erori.isEmpty()) {
             return;
