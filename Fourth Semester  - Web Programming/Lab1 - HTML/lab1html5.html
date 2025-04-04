@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+	<meta charset="UTF-8">
+	<title>Formular pentru comand&#259; de tort</title>
+</head>
+<body>
+	<div>
+		<h1>Formular pentru comand&#259; de tort</h1>
+		<h4><a href="https://www.cofetarialacreme.ro/" target="_blank">Cofet&#259;ria noastr&#259;</a></h4>
+		<form method="GET" action="#">
+			<table>
+				<tr>
+					<th colspan="3">Detalii client</th>
+				</tr>
+				<tr>
+					<td>
+						Comanzi pentru prima dat&#259; <input type="radio" name="raspuns" value="Da">Da<input type="radio" name="raspuns" value="Nu">Nu 
+					</td>
+					<td colspan="2">
+						Aboneaz&#259;-te la newsletter si prime&#351;ti <b>5% reducere</b>, dac&#259; comanzi pentru prima dat&#259;.<input type="checkbox" name="notificare">
+					</td>
+				</tr>
+				<tr>
+					<td>Nume <input type="text" name="nume" required></td>
+					<td>Email <input type="email" name="email"></td>
+					<td>Contact <input type="text" name="contact" maxlength="10" required></td>
+				</tr>
+				<tr>
+					<th colspan="3">Detalii eveniment</th>
+				</tr>
+				<tr>
+					<td>Data <input type="date" name="data" required></td>
+					<td>Eveniment <input type="text" name="eveniment"></td>
+					<td>Num&#259;r de nivele <input type="number" name="nivel" min="1" max="10" step="1"></td>
+				</tr>
+				<tr>
+					<th colspan="3">Detalii comand&#259;</th>
+				</tr>
+				<tr>
+					<td>Form&#259; tort</td>
+					<td colspan="2">
+						<table>
+							<tr>
+								<td>
+									<input type="radio" name="forma" value="cerc">Cerc
+								</td>
+								<td>
+									<img src="https://i.pinimg.com/736x/8e/ca/3a/8eca3a0e5b7458312316e9a6e5d7c660.jpg" alt="imagine indisponibil&#259;" width=100 height=100>
+								</td>
+								<td>
+									 <input type="radio" name="forma" value="patrat">Dreptunghi 
+								</td>
+								<td>
+									<img src="https://i.pinimg.com/736x/67/6b/57/676b570a5c61e345d7d7c04c54d3e139.jpg" alt="imagine indisponibil&#259;" width=100 height=100>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="radio" name="forma" value="patrat">P&#259;rtrat 
+								</td>
+								<td>
+									<img src="https://i.pinimg.com/736x/3d/f9/29/3df929da6e84ec3c59c4a6f5a34808c8.jpg" alt="imagine indisponibil&#259;" width=100 height=100>
+								</td>
+								<td>
+									<input type="radio" name="forma" value="alta"><input type="text" name="forma" placeholder="Alt&#259; form&#259;">
+								</td>
+								<td>
+									<img src="https://i.pinimg.com/474x/3e/94/30/3e9430151f07c75e5b55738e7db56a79.jpg" alt="imagine indisponibil&#259;" width=100 height=100>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		    <table>
+		    	<tr>
+		    		<th colspan="3">Personalizeaz&#259; comanda ta</th>
+		    	</tr>
+		    	<tr>
+		    		<th>Arome</th>
+		    		<th>Con&#355;inut</th>
+		    		<th>Glazur&#259;</th>
+		    	</tr>
+		    	<tr>
+		    		<td>
+		    			<ul>
+		    				<li> 
+		    					Ciocolat&#259;
+		    					<ol type="I">
+		    						<li> Alb&#259; </li>
+		    						<li> Neagr&#259; </li>
+		    					</ol>
+		    				</li>
+		    				<li> Fistic &#351;i zmeur&#259;</li>
+		    				<li> Vanilie</li>
+		    				<li> L&#259;m&#226; &#351;i ment&#259;</li>
+		    				<li> 
+		    					Ciocolat&#259; &#351;i
+		    					<ol type="I" start="3">
+		    						<li> Cafea </li>
+		    						<li> Vanilie </li>
+		    						<li> Fructe </li>
+		    					</ol>
+		    				</li>
+		    				<li>Caramel &#351;i alune de p&#259;dure</li>
+		    				<li>Orice combina&#355;ie de fructe</li>
+		    			</ul>
+		    		</td>
+		    		<td>
+		    			<ul>
+		    				<li>Gem de fructe</li>
+		    				<li>Iaurt</li>
+		    				<li>Vanilie</li>
+		    				<li> 
+		    					Ciocolat&#259; belgian&#259;
+		    					<ol type="A">
+		    						<li> Alb&#259; </li>
+		    						<li> Neagr&#259; </li>
+		    					</ol>
+		    				</li>
+		    				<li>
+		    					Crem&#259; de 
+		    					<ul>
+		    						<li> fistic </li>
+		    						<li> nuc&#259; </li>
+		    						<li> unt de arahide </li>
+		    						<li> zah&#259;r ars </li>
+		    						<li> cafea </li>
+		    						<li> biscui&#355;i </li>
+		    					</ul>
+		    				</li>
+		    			</ul>
+		    		</td>
+		    		<td>
+		    			<ol type="a">
+		    				<li>Cacao</li>
+		    				<li>Vanilie</li>
+		    				<li>Crem&#259; de br&#226;nz&#259;</li>
+		    				<li>Caramel</li>
+		    				<li>
+		    					Fructe
+		    					<ul>
+		    						<li> de p&#259;dure </li>
+		    						<li> vi&#351;ine </li>
+		    						<li> rodie </li>
+		    						<li> c&#259;p&#351;uni </li>
+		    					</ul>
+		    				</li>
+		    				<li>Fri&#351;c&#259;</li>
+		    				<li>Ness</li>
+		    				<li>Miere</li>
+		    				<li>Fulgi de migdale</li>
+		    			</ol>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<td>
+		    			<i>Op&#355;iunea aleas&#259;</i>     <input type="text" name="aroma">
+		    		</td>
+		    		<td>
+		    			<input type="text" name="continut">
+		    		</td>
+		    		<td>
+		    			<input type="text" name="glazura">
+		    		</td>
+		    	</tr>
+		    </table>
+		    <table>
+		    	<tr>
+		    		<td>
+		    			<b>Alege un tort specific cofet&#259;riei noastre</b>
+		    			<table>
+		    				<tr>
+		    					<td>
+		    						<input type="checkbox" name="dobos">Dobo&#351;
+		    					</td>
+		    				</tr>
+		    				<tr>
+		    					<td>
+		    						<input type="checkbox" name="oreo">Oreo
+		    					</td>
+		    				</tr>
+		    				<tr>
+		    					<td>
+		    						<input type="checkbox" name="boema">Boema
+		    					</td>
+		    				</tr>
+		    				<tr>
+		    					<td>
+		    						<input type="checkbox" name="redvelvet">Red Velvet
+		    					</td>
+		    				</tr>
+		    				<tr>
+		    					<td>
+		    						<input type="checkbox" name="mousse">Cheescake cu topping de
+		    						<select name="cheescaketip"> 
+										<option value="fructepadure">fructe de p&#259;dure</option>
+										<option value="ciocolata" selected>ciocolat&#259;</option>
+										<option value="cocos" disabled>cocos</option>
+										<option value="vanilie">vanilie</option>
+									</select>
+		    					</td>
+		    				</tr>
+		    				<tr>
+		    					<td>
+		    						<input type="checkbox" name="profiterol">Profiterol
+		    					</td>
+		    				</tr>
+		    				<tr>
+		    					<td>
+		    						<input type="checkbox" name="ecler">Ecler
+		    					</td>
+		    				</tr>
+		    				<tr>
+		    					<td>
+		    						<input type="checkbox" name="ecler">Kinder
+		    					</td>
+		    				</tr>
+		    				<tr>
+		    					<td>
+		    						<input type="checkbox" name="mousse">Mousse de
+		    						<select name="moussetip" multiple size="3"> 
+		    							<option value="ciocolataneagra">ciocolat&#259; neagr&#259;</option>
+										<option value="ciocolatalba">ciocolat&#259; alb&#259;</option>
+										<option value="caramel">caramel</option>
+										<option value="fistic">fistic</option>
+										<option value="vanilie">vanilie</option>
+									</select>
+		    					</td>
+		    				</tr>
+		    			</table>
+		    		</td>
+		    		<td>
+		    			<textarea name="detalii" rows="15" cols="60" placeholder="Detalii legate de comand&#259;"></textarea>
+		    		</td>
+		    	</tr>
+		    	<tr>
+		    		<th colspan="2">Detalii livrare &#351;i plat&#259;</th>
+		    	</tr>
+		    	<tr>
+		    		<td colspan="2">
+			    		<table>
+			    			<tr>
+			    				<th>Metod&#259; de plat&#259;</th>
+			    				<th>Livrare</th>
+			    			</tr>
+			    			<tr>
+			    				<td>
+					    			<input type="radio" name="plata" value="cash">Cash
+					    			<input type="radio" name="plata" value="card">Card
+					    			<input type="radio" name="plata" value="cardfidelitate">Card de fidelitate
+			    				</td>
+			    				<td>
+			    					<input type="radio" name="livrare" value="domiciliu">Domiciliu
+			    					<input type="radio" name="livrare" value="cofetariie">Preluare din cofet&#259;riile noastre
+			    					<select name="locatie"> 
+										<option value="ab">Alba Iulia</option>
+										<option value="cj">Cluj-Napoca</option>
+										<option value="ar">Arad</option>
+										<option value="or">Oradea</option>
+										<option value="sb">Sibiu</option>
+									</select>
+			    				</td>
+			    			</tr>
+			    			<tr>
+			    				<td colspan="2">
+					    			<textarea name="pret" rows="2" cols="30" placeholder="Pre&#355; total" readonly></textarea>
+					    		</td>
+			    			</tr>
+			    		</table>
+			    	</td>
+		    	</tr>
+		    </table>
+			<p><input type="checkbox" name="acord" required checked>Sunt de acord cu termenii &#351;i condi&#355;iile de prelucrare a datelor cu caracter personal.</p>
+			<p><input type="checkbox" name="clientf">Devino client fidel &#351;i beneficiaz&#259; de <b>reduceri</b> la tot pasul</p>
+			<div>
+				<input type="submit" value="Plaseaz&#259;">
+				<input type="reset" value="Anuleaz&#259;">
+			</div>
+			<div>
+				<p> Dac&#259; &#355;i-a pl&#259;cut colaborarea noastr&#259;, am fi recunosc&#259;tori dac&#259; ne-ai urm&#259;ri pe paginile noastre<br> de <span>Facebook</span> &#351;i <span>Instagram </span> <strong>Dulcele pe placul t&#259;u</strong>.</p>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
