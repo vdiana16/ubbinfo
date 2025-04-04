@@ -1,0 +1,98 @@
+/* General styles for the application */
+.root {
+    -fx-font-family: 'Arial';
+    -fx-font-size: 14px;
+    -fx-background-image: url("../images/background.png");
+    -fx-background-size: cover; /* Asigură că imaginea acoperă întreaga zonă */
+}
+
+/* Chat header styles */
+.chat-header {
+    -fx-background-image: url("../images/background.png");
+    -fx-background-size: cover;
+    -fx-padding: 10;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+.chat-header-label {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* ListView styles for chat */
+.chat-list-view {
+    -fx-background-image: url("../images/background.png");
+    -fx-background-size: cover; /* Asigură că imaginea acoperă întreaga zonă */
+    -fx-padding: 5;
+}
+.chat-list-cell {
+    -fx-background-radius: 10;
+    -fx-padding: 5;
+    -fx-spacing: 2;
+}
+
+/* Styles for messages */
+.message-outgoing {
+    -fx-background-color: #ff1493;
+    -fx-text-fill: #000000;
+    -fx-padding: 10;
+    -fx-background-radius: 10;
+}
+.message-incoming {
+    -fx-background-color: #f8cbdb;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10;
+    -fx-background-radius: 10;
+}
+
+.reply-container {
+    -fx-background-color: #bbbbbb;
+    -fx-padding: 5;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-border-color: pink;
+}
+
+/* Input area styles */
+.message-input {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-border-width: 1;
+    -fx-border-color: pink;
+    -fx-border-radius: 4;
+    -fx-padding: 5;
+}
+
+.message-send-button {
+    -fx-background-color: rgba(255, 255, 255, 0.92);
+    -fx-text-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-border-radius: 4;
+    -fx-padding: 5;
+}
+
+/* Button styles for actions */
+.action-button {
+    -fx-background-color: white;
+    -fx-padding: 5;
+    -fx-background-radius: 4;
+}
+.action-button:hover {
+    -fx-background-color: pink;
+}
+.action-button:pressed {
+    -fx-background-color: white;
+}
+
+.action-icon {
+    -fx-fit-width: 18;
+    -fx-fit-height: 18;
+}
+
+/* Tooltip styling */
+.tooltip {
+    -fx-font-size: 12px;
+    -fx-background-color: #444444;
+    -fx-text-fill: #ffffff;
+}
