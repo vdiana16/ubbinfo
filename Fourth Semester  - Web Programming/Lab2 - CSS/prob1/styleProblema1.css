@@ -1,0 +1,22 @@
+.div-parinte{
+    display: flex;
+    border: 2px solid black;
+    justify-content: space-between;
+}
+
+.div-stanga{
+    width: 200px;
+    text-align: center;
+    margin: auto;
+}
+
+.div-dreapta{
+    align-content: center;
+    margin: auto;
+}
+
+.imagine{
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}

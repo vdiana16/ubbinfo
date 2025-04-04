@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    justify-content: left;
+    background-color: white;
+}
+
+.container {
+    gap: 30px; /*Space between images*/
+    padding: 20px;
+    border: 2px solid black;
+    width: fit-content;
+    background-color: yellow;
+}
+
+.container ul {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px; /* Spațiu între elemente */
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+}
+
+.container ul li img {
+    width: 120px;
+    height: 150px;
+}
+
+.container ul li {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.container ul li p {
+    margin-left: 10px;
+    height: 5px;
+    color: black;
+    font-family: sans-serif;
+    font-size: 16px;
+}

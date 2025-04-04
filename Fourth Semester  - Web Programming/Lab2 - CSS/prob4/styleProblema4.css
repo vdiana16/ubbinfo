@@ -1,0 +1,95 @@
+body{
+    display: flex;
+    margin: 0;
+    height: 100vh;
+}
+
+nav{
+    display: flex;;
+    flex-direction: column; /* row */
+}
+
+nav a{
+    display: flex;
+    flex: 1;
+    width: 91px;
+    height: 91px;
+    background-image: url(icons.png);
+}
+
+#icon1{
+    background-position: 0px 0px
+}
+#icon1:hover {
+    background-position: 0px -91px
+}
+
+#icon2{
+    background-position: -91px 0px
+}
+#icon2:hover {
+    background-position: -91px -91px
+}
+
+#icon3{
+    background-position: -182px 0px
+}
+#icon3:hover {
+    background-position: -182px -91px
+}
+
+#icon4{
+    background-position: -273px 0px
+}
+#icon4:hover {
+    background-position: -273px -91px
+}
+
+#icon5{
+    background-position: -364px 0px
+}
+#icon5:hover {
+    background-position: -364px -91px
+}
+
+#icon6{
+    background-position: -455px 0px
+}
+#icon6:hover {
+    background-position: -455px -91px
+}
+
+#icon7{
+    background-position: -546px 0px
+}
+#icon7:hover {
+    background-position: -546px -91px
+}
+
+#icon8{
+    background-position: -637px 0px
+}
+#icon8:hover {
+    background-position: -637px -91px
+}
+
+#icon9{
+    background-position: -728px 0px
+}
+#icon9:hover {
+    background-position: -728px -91px
+}
+
+#icon10{
+    background-position: -819px 0px
+}
+#icon10:hover {
+    background-position: -819px -91px
+}
+
+#icon11{
+    background-position: -910px 0px
+}
+#icon11:hover {
+    background-position: -910px -91px
+}
