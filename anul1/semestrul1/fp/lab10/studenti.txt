@@ -1,4 +1,0 @@
-0,Mara,
-1,Andrei,
-2,Sonia,
-3,Eliza,
