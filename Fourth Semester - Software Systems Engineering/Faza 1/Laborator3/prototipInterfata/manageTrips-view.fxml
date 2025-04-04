@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="">
+
+    <center>
+        <VBox spacing="10" style="-fx-padding: 20;">
+            <TableView fx:id="tripsTable" prefHeight="300">
+                <columns>
+                    <TableColumn text="Destination" fx:id="destinationColumn" />
+                    <TableColumn text="Transport Company" fx:id="transportCompanyColumn" />
+                    <TableColumn text="Date and Time" fx:id="dateTimeColumn" />
+                    <TableColumn text="Price" fx:id="priceColumn" />
+                    <TableColumn text="Available Seats" fx:id="seatsColumn" />
+                </columns>
+            </TableView>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Update" fx:id="updateButton" />
+                <Button text="Delete" fx:id="deleteButton" />
+            </HBox>
+        </VBox>
+    </center>
+
+    <right>
+        <VBox spacing="10" style="-fx-padding: 20;">
+            <TextField fx:id="destinationField" promptText="Destination" />
+            <TextField fx:id="transportCompanyField" promptText="Transport Company" />
+            <TextField fx:id="dateTimeField" promptText="Date and Time" />
+            <TextField fx:id="priceField" promptText="Price" />
+            <TextField fx:id="seatsField" promptText="Available Seats" />
+            <Button text="Add" fx:id="addButton" />
+        </VBox>
+    </right>
+</BorderPane>

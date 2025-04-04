@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="">
+
+    <center>
+        <VBox spacing="10" style="-fx-padding: 20;">
+            <TableView fx:id="agentsTable" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="nameColumn" text="Name" />
+                    <TableColumn fx:id="usernameColumn" text="Username" />
+                    <TableColumn fx:id="passwordColumn" text="Password" />
+                    <TableColumn fx:id="contactColumn" text="Contact" />
+                    <TableColumn fx:id="agencyNameColumn" prefWidth="80.80001220703127" text="Agency Name" />
+                </columns>
+            </TableView>
+
+            <HBox alignment="CENTER" spacing="10">
+                <Button fx:id="updateButton" text="Update" />
+                <Button fx:id="deleteButton" text="Delete" />
+            </HBox>
+        </VBox>
+    </center>
+
+    <right>
+        <VBox spacing="10" style="-fx-padding: 20;">
+            <TextField fx:id="nameField" promptText="Name" />
+            <TextField fx:id="usernameField" promptText="Username" />
+            <PasswordField fx:id="passwordField" promptText="Password" />
+            <TextField fx:id="contactField" promptText="Contact" />
+            <TextField fx:id="agencyNameField" promptText="Agency Name" />
+            <Button fx:id="addButton" text="Add" />
+        </VBox>
+    </right>
+</BorderPane>
