@@ -2,3 +2,5 @@
 
 
 void testAll();
+
+void testAvanseazaKPasi();
