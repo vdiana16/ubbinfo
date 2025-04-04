@@ -32,9 +32,13 @@ public class SocialNetworkApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        String url = "jdbc:postgresql://localhost:5432/postgres";
-        String user = "socialnet";
-        String password = "1234";
+        Properties properties = new Properties();
+        try (FileInputStream fis = new FileInputStream("config.properties")) {
+            properties.load(fis);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return;
+        }
 
         ValidatorFactory validatorFactory = ValidatorFactory.getInstance();
         Validator userValidator = validatorFactory.createValidator(ValidatorStrategy.User);
