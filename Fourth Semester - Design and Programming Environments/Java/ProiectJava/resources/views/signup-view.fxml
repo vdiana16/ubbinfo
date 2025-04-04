@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.Insets?>
+<AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.controller.SignUpController">
+
+    <GridPane alignment="center" hgap="10" vgap="15" AnchorPane.topAnchor="20" AnchorPane.rightAnchor="20"
+              AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" prefWidth="400">
+
+        <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+
+        <!-- Header -->
+        <Text text="Create New Account" GridPane.columnIndex="0" GridPane.rowIndex="0"
+              GridPane.columnSpan="2" GridPane.halignment="CENTER"
+              style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+        <!-- Name Field -->
+        <Label text="Full Name:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="txtName" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="200"/>
+
+        <!-- Username Field -->
+        <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <TextField fx:id="txtUsername" GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth="200"/>
+
+        <!-- Password Field -->
+        <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <PasswordField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="3" prefWidth="200"/>
+
+        <!-- Buttons -->
+        <HBox spacing="10" alignment="bottom_right"
+              GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2">
+            <Button text="Cancel" fx:id="btnCancel" onAction="#handlePanelClicks"
+                    style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+            <Button text="Sign Up" fx:id="btnSignUp" onAction="#handlePanelClicks"
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+        </HBox>
+
+    </GridPane>
+</AnchorPane>
