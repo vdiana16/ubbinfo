@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Joc Memory cu Imagini</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 30px;
+        }
+
+        select, button {
+            font-size: 16px;
+            padding: 5px 10px;
+            margin: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        td {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #888;
+            background-color: #6c9;
+            cursor: pointer;
+            position: relative;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+
+        td.flipped img {
+            display: block;
+        }
+
+        td.matched {
+            background-color: #bada55;
+            pointer-events: none;
+        }
+
+        .message {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Joc Memory cu Imagini</h2>
+
+<label for="gridSize">Alege dimensiunea (NxN):</label>
+<select id="gridSize">
+    <option value="2">2 x 2</option>
+    <option value="4" selected>4 x 4</option>
+    <option value="6">6 x 6</option>
+</select>
+
+<button onclick="startGame()">Start Joc</button>
+
+<table id="memoryGame"></table>
+<div class="message" id="message"></div>
+
+<script>
+    // Aici trebuie să pui căile către imaginile tale stocate în folderul `images`
+    const imagePaths = [
+        'images/mar.png',      // Imagine 1: Mar
+        'images/para.png',     // Imagine 2: Pară
+        'images/portocala.png', // Imagine 3: Portocală
+        'images/lamaie.png',    // Imagine 4: Lămâie
+        'images/avocado.png',   // Imagine 5: Avocado
+        'images/capsuna.png',   // Imagine 6: Căpșună
+        'images/cireasa.png',   // Imagine 7: Cireșă
+        'images/pepene.png'     // Imagine 8: Pepene
+    ];
+
+    let images = [];
+    let flippedCells = [];
+    let matchedPairs = 0;
+    let totalPairs = 0;
+
+    function generateImages(totalCells) {
+        const needed = totalCells / 2; // trebuie sa avem destule imagini pentru a face perechi
+        let imgArray = [];
+
+        // Folosim imagini suficiente si le repetam daca nu sunt suficiente
+        while (imgArray.length < needed) {
+            imgArray.push(...imagePaths);
+        }
+
+        // Reducem la jumatate pentru a avea perechi
+        imgArray = imgArray.slice(0, needed); // Acum avem suficiente imagini pentru a face perechi
+        imgArray = [...imgArray, ...imgArray]; // Dublam imagini pentru a crea perechi
+
+        return imgArray.sort(() => Math.random() - 0.5); // Amestecăm imaginile
+    }
+
+    function createTable(size) {
+        const totalCells = size * size;
+        images = generateImages(totalCells);
+        flippedCells = [];
+        matchedPairs = 0;
+        totalPairs = totalCells / 2;
+
+        const table = document.getElementById("memoryGame");
+        table.innerHTML = '';
+        document.getElementById("message").textContent = '';
+
+        let index = 0;
+        for (let i = 0; i < size; i++) {
+            const row = document.createElement("tr");
+            for (let j = 0; j < size; j++) {
+                const cell = document.createElement("td");
+                cell.dataset.index = index;
+                const img = document.createElement("img");
+                img.src = images[index];
+                cell.appendChild(img);
+                cell.addEventListener("click", flipCell);
+                row.appendChild(cell);
+                index++;
+            }
+            table.appendChild(row);
+        }
+    }
+
+    function flipCell(e) {
+        const cell = e.currentTarget;
+        if (cell.classList.contains("flipped") || cell.classList.contains("matched") || flippedCells.length === 2) {
+            return;
+        }
+
+        cell.classList.add("flipped");
+        flippedCells.push(cell);
+
+        if (flippedCells.length === 2) {
+            checkMatch();
+        }
+    }
+
+    function checkMatch() {
+        const [cell1, cell2] = flippedCells;
+        const img1 = cell1.querySelector("img").src;
+        const img2 = cell2.querySelector("img").src;
+
+        if (img1 === img2) {
+            cell1.classList.add("matched");
+            cell2.classList.add("matched");
+            matchedPairs++;
+            flippedCells = [];
+
+            if (matchedPairs === totalPairs) {
+                document.getElementById("message").textContent = "🎉 Ai câștigat! Toate perechile au fost găsite.";
+            }
+        } else {
+            setTimeout(() => {
+                cell1.classList.remove("flipped");
+                cell2.classList.remove("flipped");
+                flippedCells = [];
+            }, 1200);
+        }
+    }
+
+    function startGame() {
+        const size = parseInt(document.getElementById("gridSize").value);
+        const totalCells = size * size;
+        createTable(size);
+    }
+
+    window.onload = startGame;
+</script>
+</body>
+</html>

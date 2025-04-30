@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabel Sortabil - Antet Orizontal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        th:hover {
+            background-color: #45a049;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        td {
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Tabel Sortabil cu Antet Orizontal</h2>
+
+<!-- Primul Tabel -->
+<table id="tabel_orizontal">
+    <thead>
+    <tr>
+        <th onclick="sortTable(0, 'tabel_orizontal')">Fructe</th>
+        <th onclick="sortTable(1, 'tabel_orizontal')">Mere</th>
+        <th onclick="sortTable(2, 'tabel_orizontal')">Pere</th>
+        <th onclick="sortTable(3, 'tabel_orizontal')">Prune</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th onclick="sortTable(0, 'tabel_orizontal')">Pret</th>
+        <td>3</td>
+        <td>4</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <th onclick="sortTable(0, 'tabel_orizontal')">Cantitate</th>
+        <td>8</td>
+        <td>6</td>
+        <td>10</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Al doilea Tabel -->
+<h2>Al Doilea Tabel Sortabil</h2>
+<table id="tabel_orizontal_2">
+    <thead>
+    <tr>
+        <th onclick="sortTable(0, 'tabel_orizontal_2')">Legume</th>
+        <th onclick="sortTable(1, 'tabel_orizontal_2')">Cartofi</th>
+        <th onclick="sortTable(2, 'tabel_orizontal_2')">Morcovi</th>
+        <th onclick="sortTable(3, 'tabel_orizontal_2')">Ceapa</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th onclick="sortTable(0, 'tabel_orizontal_2')">Pret</th>
+        <td>2.5</td>
+        <td>1.8</td>
+        <td>1.2</td>
+    </tr>
+    <tr>
+        <th onclick="sortTable(0, 'tabel_orizontal_2')">Cantitate</th>
+        <td>15</td>
+        <td>20</td>
+        <td>30</td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+    function sortTable(colIndex, tableId) {
+        const table = document.getElementById(tableId);
+        const rows = Array.from(table.rows).slice(1); // Exclude header row
+        const isNumeric = !isNaN(rows[0].cells[colIndex].textContent);
+
+        rows.sort((rowA, rowB) => {
+            const cellA = rowA.cells[colIndex].textContent;
+            const cellB = rowB.cells[colIndex].textContent;
+
+            if (isNumeric) {
+                return parseFloat(cellA) - parseFloat(cellB);
+            } else {
+                return cellA.localeCompare(cellB);
+            }
+        });
+
+        rows.forEach(row => table.appendChild(row)); // Re-add rows in sorted order
+    }
+</script>
+
+</body>
+</html>

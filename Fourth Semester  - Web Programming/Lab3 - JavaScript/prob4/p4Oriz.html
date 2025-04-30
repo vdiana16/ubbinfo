@@ -1,0 +1,170 @@
+<!--
+ Sa se scrie o pagina HTML ce contine un tabel cu cel putin trei coloane si cel putin trei linii. Prima
+coloana reprezinta antetul. Cand utilizatorul va da click pe o celula din antet, elementele din tabel se vor
+sorta crescator sau descrescator in functie de valorile prezente pe linia corespunzatoare antetului pe care s
+a dat click. Codul JavaScript va fi reutilizabil si va permite crearea unui comportament de tabel sortabil
+pentru mai multe tabele existente in cadrul paginii. Nu se vor folosi biblioteci de functii, jQuery, pluginuri,
+etc.
+Dupa rezolvarea problemei, implementati o noua varianta in care capul de tabel este orizontal, nu vertical.
+Nu se vor folosi biblioteci de functii, jQuery, pluginuri, etc. -->
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabele Sortabile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        th:hover {
+            background-color: #45a049;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        td {
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Tabel Sortabil cu Antet Vertical</h2>
+
+<table class="tabel-sortabil" id="tabel_vertical">
+    <thead>
+    <tr>
+        <th onclick="sortVertical(0)">Fructe</th>
+        <th onclick="sortVertical(1)">Pret</th>
+        <th onclick="sortVertical(2)">Cantitate</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Mere</td>
+        <td>3</td>
+        <td>8</td>
+    </tr>
+    <tr>
+        <td>Pere</td>
+        <td>4</td>
+        <td>6</td>
+    </tr>
+    <tr>
+        <td>Prune</td>
+        <td>2</td>
+        <td>10</td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Tabel Sortabil cu Antet Orizontal</h2>
+
+<table class="tabel-sortabil" id="tabel_orizontal">
+    <thead>
+    <tr>
+        <th onclick="sortHorizontal(0)">Mere</th>
+        <th onclick="sortHorizontal(1)">Pere</th>
+        <th onclick="sortHorizontal(2)">Prune</th>
+        <th onclick="sortHorizontal(3)">Struguri</th>
+        <th onclick="sortHorizontal(4)">Nuci</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>3</td>
+        <td>4</td>
+        <td>2</td>
+        <td>5</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>6</td>
+        <td>10</td>
+        <td>12</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>9</td>
+        <td>7</td>
+        <td>6</td>
+        <td>4</td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+    // Sortarea pentru tabelul cu antet vertical (rânduri)
+    function sortVertical(colIndex) {
+        const table = document.getElementById("tabel_vertical");
+        const rows = Array.from(table.rows).slice(1); // Exclude header row
+        const isNumeric = !isNaN(rows[0].cells[colIndex].textContent);
+
+        rows.sort((rowA, rowB) => {
+            const cellA = rowA.cells[colIndex].textContent;
+            const cellB = rowB.cells[colIndex].textContent;
+
+            if (isNumeric) {
+                return parseFloat(cellA) - parseFloat(cellB);
+            } else {
+                return cellA.localeCompare(cellB);
+            }
+        });
+
+        rows.forEach(row => table.appendChild(row)); // Re-add rows in sorted order
+    }
+
+    // Sortarea pentru tabelul cu antet orizontal (coloane)
+    function sortHorizontal(colIndex) {
+        const table = document.getElementById("tabel_orizontal");
+        const rows = Array.from(table.rows).slice(1); // Exclude header row
+        const isNumeric = !isNaN(rows[0].cells[colIndex].textContent);
+
+        rows.sort((rowA, rowB) => {
+            const cellA = rowA.cells[colIndex].textContent;
+            const cellB = rowB.cells[colIndex].textContent;
+
+            if (isNumeric) {
+                return parseFloat(cellA) - parseFloat(cellB);
+            } else {
+                return cellA.localeCompare(cellB);
+            }
+        });
+
+        rows.forEach(row => table.appendChild(row)); // Re-add rows in sorted order
+    }
+</script>
+
+</body>
+</html>

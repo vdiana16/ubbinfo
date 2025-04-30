@@ -1,0 +1,156 @@
+<!--
+    Un formular web va permite unui utilizator sa isi introduca numele, data nasterii, varsta si adresa de e
+mail. La apasarea unui buton “Trimite” se vor valida toate aceste campuri daca sunt completate si daca
+sunt completate corect. Daca da, se va afisa un mesaj “Datele sunt completate corect”, altfel, se va afisa un
+mesaj de genul “Campurile nume si varsta nu sunt completate corect”, aceste campuri fiind “incercuite”
+intr-o bordura rosie. Toate aceste validari vor fi implementate pe client in JavaScript. Nu se vor folosi
+biblioteci de functii, jQuery, pluginuri, etc. -->
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formular de Validare</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input.error {
+            border-color: red;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Formular de Inregistrare</h2>
+    <form id="registrationForm">
+        <label for="name">Nume:</label>
+        <input type="text" id="name" name="name" placeholder="Introduceti numele" />
+
+        <label for="dob">Data Nasterii:</label>
+        <input type="date" id="dob" name="dob" />
+
+        <label for="age">Varsta:</label>
+        <input type="number" id="age" name="age" placeholder="Introduceti varsta" />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Introduceti email-ul" />
+
+        <button type="button" onclick="validateForm()">Trimite</button>
+
+        <div class="message" id="message"></div>
+    </form>
+</div>
+
+<script>
+    function validateForm() {
+        // Obținem elementele
+        const name = document.getElementById('name');
+        const dob = document.getElementById('dob');
+        const age = document.getElementById('age');
+        const email = document.getElementById('email');
+        const message = document.getElementById('message');
+
+        let isValid = true;
+        message.textContent = ''; // Resetăm mesajul de eroare
+
+        // Validare Nume
+        const nameRegex = /^[A-Za-z]+$/;
+        if (!name.value.match(nameRegex)) {
+            name.classList.add('error');
+            message.textContent += "Numele trebuie să conțină doar litere.\n";
+            isValid = false;
+        } else {
+            name.classList.remove('error');
+        }
+
+        // Validare Data Nasterii și Vârsta
+        const today = new Date();
+        const birthDate = new Date(dob.value);
+        let calculatedAge = today.getFullYear() - birthDate.getFullYear();
+        const m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            calculatedAge--;
+        }
+
+        if (!dob.value) {
+            dob.classList.add('error');
+            message.textContent += "Data nașterii nu este completată.\n";
+            isValid = false;
+        } else {
+            dob.classList.remove('error');
+        }
+
+        if (age.value && (age.value < 1 || age.value > 99)) {
+            age.classList.add('error');
+            message.textContent += "Vârsta trebuie să fie între 1 și 99.\n";
+            isValid = false;
+        } else if (age.value && age.value != calculatedAge) {
+            age.classList.add('error');
+            message.textContent += "Vârsta nu se potrivește cu data nașterii.\n";
+            isValid = false;
+        } else {
+            age.classList.remove('error');
+        }
+
+        // Validare Email
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!email.value.match(emailRegex)) {
+            email.classList.add('error');
+            message.textContent += "Adresa de email nu este validă.\n";
+            isValid = false;
+        } else {
+            email.classList.remove('error');
+        }
+
+        // Mesajul final
+        if (isValid) {
+            message.textContent = "Datele sunt completate corect!";
+            message.style.color = 'green';
+        } else {
+            message.style.color = 'red';
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carusel cu Imagini din Social Media</title>
+    <style>
+        body {
+            background-color: #f1f1f1;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            height: 100vh;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        #myList {
+            position: relative;
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        #myList li {
+            display: none; /* Ascunde elementele implicit */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden; /* Ascunde elementele */
+        }
+        #myList li:first-child {
+            display: flex;
+            visibility: visible; /* Primele elemente sunt vizibile */
+        }
+        #myList a {
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        #myList a:hover {
+            color: #0056b3;
+        }
+        img {
+            width: 500px;
+            height: 450px;
+            padding-bottom: 10px;
+            border-radius: 10px;
+        }
+        #prev, #next {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+        }
+        #prev {
+            margin-right: 10px;
+        }
+        #prev:hover, #next:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Carusel cu Imagini din Social Media</h2>
+
+<div id="container">
+    <ol id="myList">
+        <li>
+            <a href="https://www.facebook.com">
+                <img src="logo/Facebook.jpg" alt="Facebook Logo">
+            </a>
+        </li>
+        <li>
+            <a href="https://www.google.com">
+                <img src="logo/Google.jpg" alt="Google Logo">
+            </a>
+        </li>
+        <li>
+            <a href="https://mail.google.com">
+                <img src="logo/Mail.jpg" alt="Gmail Logo">
+            </a>
+        </li>
+        <li>
+            <a href="https://www.yahoo.com">
+                <img src="logo/Yahoo.jpg" alt="Yahoo Logo">
+            </a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com">
+                <img src="logo/LinkedIn.jpg" alt="LinkedIn Logo">
+            </a>
+        </li>
+    </ol>
+</div>
+
+<div id="buttons">
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
+</div>
+
+<script>
+    var listItems = document.querySelectorAll('#myList li');
+    var currentIndex = 0;
+    var numItems = listItems.length;
+    var intervalNo;
+
+    function showNextItem() {
+        listItems[currentIndex].style.display = 'none';
+        listItems[currentIndex].style.visibility = 'hidden'; // Ascunde elementul anterior
+        currentIndex = (currentIndex + 1) % numItems;
+        listItems[currentIndex].style.display = 'flex';
+        listItems[currentIndex].style.visibility = 'visible'; // Afișează elementul curent
+        resetInterval();
+    }
+
+    function showPrevItem() {
+        listItems[currentIndex].style.display = 'none';
+        listItems[currentIndex].style.visibility = 'hidden'; // Ascunde elementul anterior
+        currentIndex = (currentIndex - 1 + numItems) % numItems;
+        listItems[currentIndex].style.display = 'flex';
+        listItems[currentIndex].style.visibility = 'visible'; // Afișează elementul curent
+        resetInterval();
+    }
+
+    document.getElementById('next').addEventListener('click', showNextItem);
+    document.getElementById('prev').addEventListener('click', showPrevItem);
+
+    function resetInterval() {
+        clearInterval(intervalNo);
+        intervalNo = setInterval(showNextItem, 5000);
+    }
+
+    resetInterval();
+</script>
+
+</body>
+</html>

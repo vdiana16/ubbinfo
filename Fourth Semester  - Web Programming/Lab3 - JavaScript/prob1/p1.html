@@ -1,0 +1,102 @@
+<!--
+    Sa se scrie o pagina HTML ce contine doua liste cu mai multe elemente fiecare, create cu ajutorul
+tagului <select> . La un dublu click pe un element al primei liste, acesta va fi mutat in lista a doua si
+invers. Nu se vor folosi biblioteci de functii, jQuery, pluginuri, etc. -->
+
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Mutare Elemente între Liste</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #74ebd5, #9face6);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        select {
+            width: 250px;
+            height: 300px;
+            font-size: 18px;
+            border: 2px solid #6f82ff;
+            border-radius: 12px;
+            background-color: #f0f4ff;
+            color: #333;
+            padding: 10px;
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #4a5cff;
+            box-shadow: 0 0 10px #6f82ff;
+        }
+
+        option {
+            padding: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            select {
+                width: 90vw;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <select id="list1" size="10" ondblclick="mutaElement('list1', 'list2')">
+        <option value="1">Lalele</option>
+        <option value="2">Trandafiri</option>
+        <option value="3">Bujori</option>
+        <option value="4">Iasomie</option>
+        <option value="5">Lavandă</option>
+    </select>
+
+    <select id="list2" size="10" ondblclick="mutaElement('list2', 'list1')">
+        <option value="6">Mere</option>
+        <option value="7">Pere</option>
+        <option value="8">Portocale</option>
+        <option value="9">Căpșuni</option>
+        <option value="10">Pepene</option>
+    </select>
+</div>
+
+<script>
+    function mutaElement(sourceId, destinationId) {
+        var source = document.getElementById(sourceId);
+        var destination = document.getElementById(destinationId);
+        var selectedIndex = source.selectedIndex;
+
+        if (selectedIndex === -1) return;
+
+        var selectedOption = source.options[selectedIndex];
+        source.remove(selectedIndex);
+        destination.add(selectedOption);
+    }
+</script>
+
+</body>
+</html>

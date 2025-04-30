@@ -1,0 +1,182 @@
+<!--3. Sa se implementeze folosind JavaScript urmatoarea problema. O matrice cu numar par de elemente,
+reprezentata vizual sub forma unui tabel, contine perechi de numere initial ascunse. Daca utilizatorul da
+click pe doua celule ale tabelului ce contin numere egale acestea vor fi afisate si vor ramane afisate. Daca
+numerele continute in cele doua celule nu sunt egale, vor fi ascunse din nou dupa un numar de 2, 3
+secunde. Jocul se termina cand toate perechile de numere au fost ghicite. Dupa prima implementare a
+jocului, se va crea o noua versiune in care numerele vor fi inlocuite cu imagini (ce contin fructe spre
+3 exemplu, sau “profi” de pe pagina facultatii). Problema mai este recunoscuta si sub numele de Memory
+Game. Nu se vor folosi biblioteci de functii, jQuery, pluginuri, etc. -->
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Joc Memory NxN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        select, button {
+            font-size: 16px;
+            padding: 5px 10px;
+            margin: 5px;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        td {
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            vertical-align: middle;
+            background-color: #4CAF50;
+            font-size: 24px;
+            color: transparent;
+            border: 2px solid #ccc;
+            cursor: pointer;
+        }
+
+        td.flipped {
+            color: black;
+            background-color: #f0f0f0;
+        }
+
+        td.matched {
+            background-color: #4CAF50;
+            color: white;
+            pointer-events: none;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Joc Memory - Grilă NxN</h2>
+
+<label for="gridSize">Alege dimensiunea grilei (NxN):</label>
+<select id="gridSize">
+    <option value="2">2 x 2</option>
+    <option value="4" selected>4 x 4</option>
+    <option value="6">6 x 6</option>
+    <option value="8">8 x 8</option>
+</select>
+
+<button onclick="startGame()">Start Joc</button>
+
+<table id="memoryGame"></table>
+<div class="message" id="message"></div>
+
+<script>
+    let numbers = [];
+    let flippedCells = [];
+    let matchedCells = 0;
+    let totalPairs = 0;
+    let gridSize = 4;
+
+    function generateNumbers(totalCells) {
+        let numArray = [];
+        for (let i = 1; i <= totalCells / 2; i++) {
+            numArray.push(i, i);
+        }
+        return numArray.sort(() => Math.random() - 0.5);
+    }
+
+    function createTable(size) {
+        const totalCells = size * size;
+        numbers = generateNumbers(totalCells);
+        flippedCells = [];
+        matchedCells = 0;
+        totalPairs = totalCells / 2;
+        gridSize = size;
+
+        const table = document.getElementById('memoryGame');
+        table.innerHTML = '';
+        document.getElementById('message').textContent = '';
+
+        let cellIndex = 0;
+        for (let i = 0; i < size; i++) {
+            const tr = document.createElement('tr');
+            for (let j = 0; j < size; j++) {
+                const td = document.createElement('td');
+                td.dataset.index = cellIndex;
+                td.addEventListener('click', flipCell);
+                tr.appendChild(td);
+                cellIndex++;
+            }
+            table.appendChild(tr);
+        }
+    }
+
+    function flipCell(event) {
+        const cell = event.target;
+        if (cell.classList.contains('flipped') || cell.classList.contains('matched') || flippedCells.length === 2) {
+            return;
+        }
+
+        const index = cell.dataset.index;
+        cell.textContent = numbers[index];
+        cell.classList.add('flipped');
+        flippedCells.push(cell);
+
+        if (flippedCells.length === 2) {
+            checkMatch();
+        }
+    }
+
+    function checkMatch() {
+        const [cell1, cell2] = flippedCells;
+        const index1 = cell1.dataset.index;
+        const index2 = cell2.dataset.index;
+
+        if (numbers[index1] === numbers[index2]) {
+            cell1.classList.add('matched');
+            cell2.classList.add('matched');
+            matchedCells++;
+            if (matchedCells === totalPairs) {
+                document.getElementById('message').textContent = '🎉 Felicitări! Ai terminat jocul!';
+            }
+            flippedCells = [];
+        } else {
+            setTimeout(() => {
+                cell1.textContent = '';
+                cell2.textContent = '';
+                cell1.classList.remove('flipped');
+                cell2.classList.remove('flipped');
+                flippedCells = [];
+            }, 1000);
+        }
+    }
+
+    function startGame() {
+        const size = parseInt(document.getElementById('gridSize').value);
+        if ((size * size) % 2 !== 0) {
+            alert("Numărul total de celule trebuie să fie par.");
+            return;
+        }
+        createTable(size);
+    }
+
+    // Joc implicit: 4x4
+    window.onload = () => startGame();
+</script>
+
+</body>
+</html>
