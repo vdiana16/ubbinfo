@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.client.controller.MainController">
+
+    <!-- Top Bar -->
+    <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #f0f0f0; -fx-padding: 10;"
+          AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <Label fx:id="lblWelcome" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Logout" onAction="#handleLogout" style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+    </HBox>
+
+    <!-- Main Content -->
+    <TabPane fx:id="mainTabPane" tabClosingPolicy="UNAVAILABLE" AnchorPane.topAnchor="50" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <Tab text="All Excursions">
+            <AnchorPane>
+                <TableView fx:id="tableViewTours" layoutX="10" layoutY="10"
+                           AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10"
+                           prefHeight="300">
+                    <columns>
+                        <TableColumn fx:id="tblColumnDestination" text="Destination" prefWidth="150"/>
+                        <TableColumn fx:id="tblColumnTransportCompany" text="Transport Company" prefWidth="150"/>
+                        <TableColumn fx:id="tblColumnDepartureDate" text="Departure Time" prefWidth="100"/>
+                        <TableColumn fx:id="tblColumnPrice" text="Price" prefWidth="80"/>
+                        <TableColumn fx:id="tblColumnNumberOfAvailableSeats" text="Available Seats" prefWidth="100"/>
+                    </columns>
+                </TableView>
+
+                <HBox spacing="10" layoutX="10" layoutY="320"
+                      AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
+                    <Label text="Client Name:"/>
+                    <TextField fx:id="txtClientName" prefWidth="150"/>
+                    <Label text="Phone:"/>
+                    <TextField fx:id="txtClientContact" prefWidth="120"/>
+                    <Label text="Tickets:"/>
+                    <TextField fx:id="txtReservedSeats" prefWidth="60"/>
+                    <Button text="Make Reservation" onAction="#handleReservation"
+                            style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                </HBox>
+            </AnchorPane>
+        </Tab>
+        <Tab text="Search Excursions">
+            <AnchorPane>
+                <HBox spacing="10" layoutX="10" layoutY="10"
+                      AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
+                    <Label text="Destination:"/>
+                    <TextField fx:id="txtSearchedDestination" prefWidth="150"/>
+                    <Label text="Date:"/>
+                    <DatePicker fx:id="dtpDataDeparture" prefWidth="120"/>
+                    <Label text="Between:"/>
+                    <TextField fx:id="txtStartTime" prefWidth="80" promptText="HH:mm"/>
+                    <Label text="and"/>
+                    <TextField fx:id="txtEndTime" prefWidth="80" promptText="HH:mm"/>
+                    <Button text="Search" onAction="#handleSearchTours"
+                            style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+                </HBox>
+
+                <TableView fx:id="tableViewToursByDestination" layoutX="10" layoutY="50"
+                           AnchorPane.topAnchor="50" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10"
+                           AnchorPane.bottomAnchor="10" prefHeight="300">
+                    <columns>
+                        <TableColumn fx:id="tblColumnDest" text="Destination" prefWidth="150"/>
+                        <TableColumn fx:id="tblColumnTranspComp" text="Transport Company" prefWidth="150"/>
+                        <TableColumn fx:id="tblColumnDepDate" text="Departure Time" prefWidth="100"/>
+                        <TableColumn fx:id="tblColumnPr" text="Price" prefWidth="80"/>
+                        <TableColumn fx:id="tblColumnNumOfAvSeats" text="Available Seats" prefWidth="100"/>
+                    </columns>
+                </TableView>
+            </AnchorPane>
+        </Tab>
+
+        <Tab text="Show Reservations">
+            <VBox spacing="10">
+                <!-- Reservations Table -->
+                <TableView fx:id="tableViewReservations" style="-fx-font-size: 12px;">
+                    <columns>
+                        <TableColumn fx:id="tblColumnTourDestination" text="Tour Destination"/>
+                        <TableColumn fx:id="tblColumnClientName" text="Client Name"/>
+                        <TableColumn fx:id="tblColumnClientContact" text="Client Contact"/>
+                        <TableColumn fx:id="tblColumnSeats" text="Seats"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+    </TabPane>
+</AnchorPane>

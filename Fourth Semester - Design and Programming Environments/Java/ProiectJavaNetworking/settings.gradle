@@ -1,0 +1,8 @@
+rootProject.name = 'TravelAgencyApp'
+include 'TravelModel'
+include 'TravelPersistence'
+include 'TravelNetworking'
+include 'TravelServices'
+include 'TravelServer'
+include 'TravelClient'
+

@@ -1,0 +1,24 @@
+.root {
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+}
+
+.button {
+    -fx-padding: 5 15 5 15;
+    -fx-background-radius: 5;
+}
+
+.text-field, .password-field {
+    -fx-pref-width: 200px;
+    -fx-background-radius: 5;
+}
+
+.hyperlink {
+    -fx-text-fill: #0066cc;
+    -fx-border-color: transparent;
+}
+
+.hyperlink:hover {
+    -fx-text-fill: #004499;
+    -fx-underline: true;
+}
