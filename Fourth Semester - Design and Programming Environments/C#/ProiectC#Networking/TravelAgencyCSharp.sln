@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAgencyCSharp", "TravelAgencyCSharp\TravelAgencyCSharp.csproj", "{02454A25-ADF6-4DA5-B43C-6228F6525540}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelModel", "TravelModel\TravelModel.csproj", "{9ECF5928-FC97-4A1B-99C8-BCB37586F609}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelPersistence", "TravelPersistence\TravelPersistence.csproj", "{0FF3CBC5-3A6D-4B29-B354-344814CBC151}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelServices", "TravelServices\TravelServices.csproj", "{A567B439-7E5C-4A0E-AD77-B05249DDF3E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelNetworking", "TravelNetworking\TravelNetworking.csproj", "{63AE4CA4-3C0D-43B1-AF5B-FC8C4C61651B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelServer", "TravelServer\TravelServer.csproj", "{664E513B-8A6F-4B55-9F5A-060E7AD946DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelClient", "TravelClient\TravelClient.csproj", "{5E09815F-80DF-4442-A710-8BAA6A00CEEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02454A25-ADF6-4DA5-B43C-6228F6525540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02454A25-ADF6-4DA5-B43C-6228F6525540}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02454A25-ADF6-4DA5-B43C-6228F6525540}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02454A25-ADF6-4DA5-B43C-6228F6525540}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ECF5928-FC97-4A1B-99C8-BCB37586F609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ECF5928-FC97-4A1B-99C8-BCB37586F609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ECF5928-FC97-4A1B-99C8-BCB37586F609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ECF5928-FC97-4A1B-99C8-BCB37586F609}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FF3CBC5-3A6D-4B29-B354-344814CBC151}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FF3CBC5-3A6D-4B29-B354-344814CBC151}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FF3CBC5-3A6D-4B29-B354-344814CBC151}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FF3CBC5-3A6D-4B29-B354-344814CBC151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A567B439-7E5C-4A0E-AD77-B05249DDF3E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A567B439-7E5C-4A0E-AD77-B05249DDF3E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A567B439-7E5C-4A0E-AD77-B05249DDF3E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A567B439-7E5C-4A0E-AD77-B05249DDF3E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63AE4CA4-3C0D-43B1-AF5B-FC8C4C61651B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63AE4CA4-3C0D-43B1-AF5B-FC8C4C61651B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63AE4CA4-3C0D-43B1-AF5B-FC8C4C61651B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63AE4CA4-3C0D-43B1-AF5B-FC8C4C61651B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{664E513B-8A6F-4B55-9F5A-060E7AD946DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{664E513B-8A6F-4B55-9F5A-060E7AD946DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{664E513B-8A6F-4B55-9F5A-060E7AD946DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{664E513B-8A6F-4B55-9F5A-060E7AD946DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E09815F-80DF-4442-A710-8BAA6A00CEEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E09815F-80DF-4442-A710-8BAA6A00CEEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E09815F-80DF-4442-A710-8BAA6A00CEEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E09815F-80DF-4442-A710-8BAA6A00CEEC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
